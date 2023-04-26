@@ -1,0 +1,14 @@
+<div class="list-group" style="height: 600px; overflow: auto;">
+    {% for product in products %}
+        <section class="list-group-item list-group-item-action">
+            <h3 class="fw-bold">{{ product.name }}</h3>
+            <h4>{{ product.summary }}</h4>
+            {% for tag in product.tags %}
+                <a class="badge text-bg-warning d-inline-block text-decoration-none"
+                   href="{{ path('tags_tag_products', {tag: tag.id}) }}">
+                    {{ tag.name }}
+                </a>
+            {% endfor %}
+        </section>
+    {% endfor %}
+</div>

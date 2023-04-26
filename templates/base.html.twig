@@ -13,7 +13,23 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bg bg-light">
+    <main class=".container-fluid">
+        <section class="row">
+            <article class="col-12">
+                {{ include('_navbar.html.twig') }}
+            </article>
+        </section>
+        <section class="row align-items-start p-4">
+            <article class="col-9">
+                {% block body %}
+                {% endblock %}
+            </article>
+            <article class="col-3">
+                {{ include('_aside.html.twig') }}
+            </article>
+        </section>
+    </main>
+
     </body>
 </html>
