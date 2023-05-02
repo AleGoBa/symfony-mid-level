@@ -1,0 +1,16 @@
+<section class="list-group-item list-group-item-action">
+    <a href="{{ path('products_show', {product: product.id}) }}">
+        <h3 class="fw-bold">{{ product.name }}</h3>
+    </a>
+    <h4>{{ product.summary }}</h4>
+    <div>
+        <p class="text-muted d-inline">
+            {{ product.comments | length }} comentarios
+        </p>
+        |
+        {% for tag in product.tags %}
+            {{ include('_tag.html.twig') }}
+        {% endfor %}
+    </div>
+
+</section>

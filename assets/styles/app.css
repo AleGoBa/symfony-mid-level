@@ -1,0 +1,10 @@
+@import 'bootstrap';
+
+body {
+    background-color: lightgray;
+}
+
+a {
+    text-decoration: none !important;
+    color: black;
+}
