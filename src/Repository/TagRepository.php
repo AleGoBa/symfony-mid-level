@@ -39,6 +39,20 @@ class TagRepository extends ServiceEntityRepository
         }
     }
 
+    public function findAllProducts(Tag $tag)
+    {
+        return $this->createQueryBuilder('tag')
+            ->addSelect('products', 'comments', 'tags')
+            ->join('tag.products', 'products')
+            ->join('products.tags', 'tags')
+            ->leftJoin('products.comments', 'comments')
+            ->where('tag.id = :tag_id')
+            ->setParameter(':tag_id', $tag->getId())
+            ->orderBy('products.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Tag[] Returns an array of Tag objects
 //     */

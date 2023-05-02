@@ -4,5 +4,9 @@
 
 {% block body %}
     <h1 class="my-3">Lista de productos</h1>
-    {{ include('_products_list.html.twig') }}
+    <div class="list-group" style="height: 600px; overflow: auto;">
+        {% for product in products %}
+            {{ include('_product.html.twig') }}
+        {% endfor %}
+    </div>
 {% endblock %}

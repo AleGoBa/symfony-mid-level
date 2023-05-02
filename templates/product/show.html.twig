@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="card p-4">
+        <h1>{{ product.name }}</h1>
+        <h5>
+            Código: <b>#{{ product.metadata.code }}</b>
+        </h5>
+        <p>{{ product.summary }}</p>
+        <hr>
+        <p>{{ product.metadata.content }}</p>
+        <div>
+            <p class="text-muted d-inline">
+                {{ product.comments | length}} comentarios
+            </p>
+            |
+            {% for tag in product.tags %}
+                {{ include('_tag.html.twig') }}
+            {% endfor %}
+        </div>
+        <ul class="list-group list-group-flush mt-4">
+            {% for comment in product.comments %}
+            <li class="list-group-item">
+                {{ include('_comment.html.twig') }}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

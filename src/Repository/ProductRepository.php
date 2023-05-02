@@ -39,6 +39,16 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
+    public function findLatest(){
+        return $this->createQueryBuilder('product')
+            ->addSelect('comments', 'tags')
+            ->leftJoin('product.tags', 'tags')
+            ->leftJoin('product.comments', 'comments')
+            ->orderBy('product.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */

@@ -1,0 +1,5 @@
+{% set tag_id = app.request.get('tag').id ?? null %}
+<a class="badge d-inline-block text-decoration-none {{ tag_id != tag.id ? 'text-bg-light': 'text-bg-danger' }}"
+   href="{{ path('tags_tag_products', {tag: tag.id}) }}">
+    {{ tag.name }}
+</a>
